@@ -1,3 +1,3 @@
-# st_st worked for Arduino #
+## st_sd worked for Arduino ##
 
-# project 8 is working in Cubeide #
+## project 8 is working in Cubeide ##
