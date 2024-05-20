@@ -38,7 +38,7 @@ SPI_HandleTypeDef hspi2;
 UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
-char yyt[32];
+char datafieldr[32];
 FATFS       FatFs;                //Fatfs handle
 FIL         fil;                  //File handle
 FRESULT     fres;                 //Result after operations
@@ -306,12 +306,12 @@ void SD_card( void )
 
     printf("TotalSpace : %lu bytes, FreeSpace = %lu bytes\n", totalSpace, freeSpace);
     //Open the file
-        fres = f_open(&fil, yyt, FA_READ);
+        fres = f_open(&fil, datafieldr, FA_READ);
         if(fres != FR_OK)
         {
           printf("File opening Error : (%i)\r\n", fres);
           //Open the file
-              fres = f_open(&fil, yyt, FA_WRITE | FA_READ | FA_CREATE_ALWAYS);
+              fres = f_open(&fil, datafieldr, FA_WRITE | FA_READ | FA_CREATE_ALWAYS);
               if(fres != FR_OK)
               {
                 printf("File creation/open Error : (%i)\r\n", fres);
@@ -338,7 +338,7 @@ void SD_card( void )
     printf("Closing File!!!\r\n");
 #if 0
     //Delete the file.
-    fres = f_unlink(EmbeTronicX.txt);
+    fres = f_unlink(newfolder.txt);
     if (fres != FR_OK)
     {
       printf("Cannot able to delete the file\n");
