@@ -105,9 +105,8 @@ int main(void)
     while (1)
 
     {
-    	
+    	/*
     	printf("//----------SD---------\n\r");
-
     	if(f_open(&fil, yyt, FA_OPEN_ALWAYS | FA_READ | FA_WRITE)!= FR_OK)
     	  {
     		  printf("\n\r not open");
@@ -128,7 +127,7 @@ int main(void)
     	f_close(&fil);
     	HAL_Delay(1000);
     	printf (" END while \n\r");
-
+*/
     }
     /* USER CODE END WHILE */
 
