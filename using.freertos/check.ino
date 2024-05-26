@@ -3,11 +3,19 @@
 #include <SPI.h>
 #include <SD.h>
 
+/* FreeRTOS includes */
+#include <STM32FreeRTOS.h>
+#include <task.h>
+
 // Pin definitions
 #define MOSI_PIN PA7
 #define MISO_PIN PA6
 #define SCK_PIN  PA5
 #define CS_PIN   PA4
+
+/* Task function prototypes */
+void TaskReadCAN(void *pvParameters);
+void TaskRevolution(void *pvParameters);
 
 RTC_DS3231 rtc;
 File dataFile;
@@ -33,38 +41,44 @@ void setup() {
     delay(1000);
   }
   Serial.println("SD card initialized");
+  DateTime now = rtc.now();
+  sprintf(fileName, "%04u%02u%02u.txt", now.year(), now.month(), now.day());
+
+  /* Create the tasks */
+  xTaskCreate(TaskReadCAN, "Read CAN", 256, NULL, 1, NULL);
+  xTaskCreate(TaskRevolution, "TaskRevolution", 256, NULL, 1, NULL);
+
+  /* Start the scheduler */
+  vTaskStartScheduler();
 }
 
 void loop() {
-  // Read the current time from the RTC
-  DateTime now = rtc.now();
-
-  // Construct the file name
-  char fileName[15];
-  sprintf(fileName, "%04u%02u%02u.txt", now.year(), now.month(), now.day());
-
-  // Write the time to the SD card
-  dataFile = SD.open(fileName, FILE_WRITE);
-  if (dataFile) {
-    dataFile.print(now.year(), DEC);
-    dataFile.print("/");
-    dataFile.print(now.month(), DEC);
-    dataFile.print("/");
-    dataFile.print(now.day(), DEC);
-    dataFile.print(" ");
-    dataFile.print(now.hour(), DEC);
-    dataFile.print(":");
-    dataFile.print(now.minute(), DEC);
-    dataFile.print(":");
-    dataFile.println(now.second(), DEC);
-    dataFile.close();
-    Serial.println("Time written to SD card");
-  } else {
-    Serial.println("Error opening file");
-  }
-
-  // Wait for 1 second before reading the time again
-  delay(1000);
 }
-//the summry:)
-//dataFile.printf("%04u/%02u/%02u %02u:%02u:%02u\n", now.year(), now.month(), now.day(), now.hour(), now.minute(), now.second());
+
+void TaskReadCAN(void *pvParameters) {
+  while (1) {
+   
+      // Add more data as needed
+    }
+    vTaskDelay(pdMS_TO_TICKS(100)); // Delay for 100 milliseconds
+  }
+}
+
+void TaskRevolution(void *pvParameters) {
+  while (1) {
+    DateTime now = rtc.now();
+
+    // Write the time and CAN data to the SD card
+    dataFile = SD.open(fileName, FILE_WRITE);
+    if (dataFile) {
+      dataFile.printf("%04u/%02u/%02u %02u:%02u:%02u, Engine Speed: %.2f RPM, Engine Boost Pressure: %u kPa, Engine Tilt/Trim Angle: %d degrees\n",
+                      now.year(), now.month(), now.day(), now.hour(), now.minute(), now.second(), rpm, (unsigned int)engineBoostPressure, (int)engineTiltTrimAngle);
+      dataFile.close();
+      Serial.println("Data written to SD card");
+    } else {
+      Serial.println("Error opening file");
+    }
+
+    vTaskDelay(pdMS_TO_TICKS(1000)); // Delay for 1 second
+  }
+}
