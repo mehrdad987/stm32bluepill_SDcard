@@ -1,37 +1,33 @@
-STM32 Blue Pill SD Card Examples
+### STM32 Blue Pill SD Card Examples ###
 This repository contains three examples for using an SD card with an STM32 Blue Pill development board, including two Arduino sketches and one STM32CubeIDE project.
+_____________________________________________________________________
 
-Table of Contents
-Introduction
-Examples
-Arduino Example 1: Basic SD Card Read/Write
-Arduino Example 2: SD Card File Logging
-STM32CubeIDE Example: SD Card Read/Write
-Hardware Requirements
-Software Requirements
-Getting Started
-License
-Introduction
+# Introduction #
 The STM32 Blue Pill is a popular and cost-effective development board based on the STM32F103C8T6 microcontroller. This repository provides three examples that demonstrate how to interface an SD card with the STM32 Blue Pill, allowing you to read and write data to the card.
 
-Examples
-Arduino Example 1: Basic SD Card Read/Write
+## Examples ##
+Arduino Example 1: Basic SD Card Read/Write in c
+______________
 This example shows how to perform basic read and write operations on an SD card using the Arduino environment.
 
-Arduino Example 2: SD Card File Logging
+Arduino Example 2: Simple SD Card Read/Write in c++
+_____________
 This example demonstrates how to create and write data to a file on an SD card using the Arduino environment.
 
-STM32CubeIDE Example: SD Card Read/Write
+STM32CubeIDE Example: SD Card Read/Write mixing with freertos
+_____________
 This example shows how to perform basic read and write operations on an SD card using the STM32CubeIDE development environment.
 
 Hardware Requirements
 STM32 Blue Pill development board
 SD card module or adapter
 Jumper wires or connection cables
+
 Software Requirements
 Arduino IDE (for the Arduino examples)
 STM32CubeIDE (for the STM32CubeIDE example)
-Appropriate STM32 hardware abstraction layer (HAL) library
+
+================================================
 Getting Started
 Clone or download the repository to your local machine.
 Open the appropriate example in your preferred development environment (Arduino IDE or STM32CubeIDE).
