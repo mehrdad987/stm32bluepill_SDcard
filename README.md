@@ -7,13 +7,15 @@ The STM32 Blue Pill is a popular and cost-effective development board based on t
 
 ## Examples ##
 Arduino Example 1: Basic SD Card Read/Write in c
-    in cubeide use stm32f103c8t6 utilizes the RCC (Reset and Clock Control) and SPI (Serial Peripheral Interface) peripherals to communicate with the SD card. Additionally, a UART (Universal Asynchronous Receiver-Transmitter) interface is used for diagnostic purposes.
 ______________
 This example shows how to perform basic read and write operations on an SD card using the Arduino environment.
+in cubeide use stm32f103c8t6 utilizes the RCC (Reset and Clock Control) and SPI (Serial Peripheral Interface) peripherals to communicate with the SD card. Additionally, a UART (Universal Asynchronous Receiver-Transmitter) interface is used for diagnostic purposes.
+*
 
 Arduino Example 2: Simple SD Card Read/Write in c++
 _____________
 This example demonstrates how to create and write data to a file on an SD card using the Arduino environment.
+*
 
 STM32CubeIDE Example: SD Card Read/Write mixing with freertos
 _____________
