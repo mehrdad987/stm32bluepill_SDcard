@@ -27,8 +27,9 @@ Software Requirements
 Arduino IDE (for the Arduino examples)
 STM32CubeIDE (for the STM32CubeIDE example)
 
-================================================
+@================================================
 Getting Started
+
 Clone or download the repository to your local machine.
 Open the appropriate example in your preferred development environment (Arduino IDE or STM32CubeIDE).
 Connect the SD card module or adapter to the STM32 Blue Pill board using the following pin connections:
