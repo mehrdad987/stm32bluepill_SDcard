@@ -1,9 +1,10 @@
 ### STM32 Blue Pill SD Card Examples ###
 This repository contains three examples for using an SD card with an STM32 Blue Pill development board, including two Arduino sketches and one STM32CubeIDE project.
+-
 _____________________________________________________________________
 
 # Introduction #
-The STM32 Blue Pill is a popular and cost-effective development board based on the STM32F103C8T6 microcontroller. This repository provides three examples that demonstrate how to interface an SD card with the STM32 Blue Pill, allowing you to read and write data to the card.
+The STM32 Blue Pill is a popular and cost-effective development board based on the STM32F103C8T6 microcontroller. This repository provides three examples that demonstrate how to interface an SD card with the STM32 Blue Pill, allowing you to read and write data to the card. 
 
 ## Examples ##
 Arduino Example 1: Basic SD Card Read/Write in c
@@ -11,7 +12,7 @@ ______________
 This example shows how to perform basic read and write operations on an SD card using the Arduino environment.
 in cubeide use stm32f103c8t6 utilizes the RCC (Reset and Clock Control) and SPI (Serial Peripheral Interface) peripherals to communicate with the SD card. Additionally, a UART (Universal Asynchronous Receiver-Transmitter) interface is used for diagnostic purposes.
 *
-
++
 Arduino Example 2: Simple SD Card Read/Write in c++
 _____________
 This example demonstrates how to create and write data to a file on an SD card using the Arduino environment.
